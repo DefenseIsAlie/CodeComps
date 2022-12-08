@@ -6,8 +6,8 @@ public class Solution {
 
     public static void main(String[] args) {
         Solution s = new Solution();
-        String test = "";
-        int k = 0;
+        String test = "Shaky";
+        int k = 1;
         System.out.println(s.orderlyQueue(test, k));
         System.out.println(); 
     }
