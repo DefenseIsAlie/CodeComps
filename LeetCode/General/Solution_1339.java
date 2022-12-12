@@ -1,4 +1,5 @@
-import java.util.HashMap;
+import java.util.ArrayList;
+import java.util.*;
 
 /*  
  *   Given the root of a binary tree, split the binary tree into two subtrees by removing one edge such that the product of the sums of the subtrees is maximized.
@@ -18,50 +19,41 @@ public class Solution_1339 {
         BST tree = new BST(test);
 
         System.out.println(tree);
-        System.out.println(s.postOrderProd(tree.root));
+        System.out.println(s.maxProduct(tree.root));
     }
 
 
     public int maxProduct(TreeNode root) {
-        
-        HashMap<Integer,Integer> rootProd = postOrderProd(root);
 
-        
+        List<Long> sumsList = new ArrayList<Long>();
 
-        return 0;
-    }
-    
-    HashMap<Integer,Integer> postOrderProd(TreeNode root){
+        long total = rootSum(root, sumsList);
 
-        HashMap<Integer,Integer> trv = new HashMap<Integer,Integer>();
+        long max = 0;
+        long prod = 0;
 
-        if (root != null) {
-            trv.putAll(postOrderProd(root.left));
-
-            trv.putAll(postOrderProd(root.right));
-
-            int right = 0;
-            int left = 0;
-            int sum = 0;
-            
-            if (root.left==null && root.right==null) {
-                sum = root.val;
-            } else if (root.left!=null && root.right==null) {
-                left = trv.get(root.left.val);
-                sum = root.val + left;
-            } else if (root.left==null && root.right!=null) {
-                right = trv.get(root.right.val);
-                sum = root.val + right;
-            } else{
-                left = trv.get(root.left.val);
-                right = trv.get(root.right.val);
-                sum = root.val + left + right;
-            }
-
-            trv.put(root.val, sum);
+        for (int i = 0; i < sumsList.size() - 1; i++) {
+            prod = (sumsList.get(i)) * (total - sumsList.get(i));
+            max = Math.max(max, prod);
         }
 
-        return trv;
+        return (int) (max % 1000000007);
+    }
+
+    long rootSum(TreeNode root, List<Long> rootSums){
+
+        if (root == null) {
+            return 0;
+        }
+
+        long leftChild = rootSum(root.left, rootSums);
+        long rightChild = rootSum(root.right, rootSums);
+
+        long sum = leftChild + rightChild + root.val;
+
+        rootSums.add(sum);
+
+        return sum;
     }
 
 }
