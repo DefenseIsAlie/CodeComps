@@ -1,12 +1,12 @@
 import java.util.Arrays;
 
-public record Soluton_7() {
-    public static void main(String[] args) {
-        int[] testcase = {1,2,4};
-        Solution_d7 soln = new Solution_d7();
-        System.out.println(soln.canMakeArithmeticProgression(testcase));
-    }
-}
+// public record Soluton_7() {
+//     public static void main(String[] args) {
+//         int[] testcase = {1,2,4};
+//         Solution_d7 soln = new Solution_d7();
+//         System.out.println(soln.canMakeArithmeticProgression(testcase));
+//     }
+// }
 
 /**
  * Solution_d7
