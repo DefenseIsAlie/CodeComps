@@ -1,22 +1,22 @@
-public class Solution_8 {
-    public static void main(String[] args) {
-        int[][] testcase = { { 4, 3, 2, -1 }, { 3, 2, 1, -1 }, { 1, 1, -1, -2 }, { -1, -1, -2, -3 } };
-        int[][] new_case = new int[5000][5000];
+// public class Solution_8 {
+//     public static void main(String[] args) {
+//         int[][] testcase = { { 4, 3, 2, -1 }, { 3, 2, 1, -1 }, { 1, 1, -1, -2 }, { -1, -1, -2, -3 } };
+//         int[][] new_case = new int[5000][5000];
 
-        for (int i = 0; i < new_case.length; i++) {
-            for (int j = 0; j < new_case.length; j++) {
-                if (j == new_case.length - 1) {
-                    new_case[i][j] = -1;
-                } else {
+//         for (int i = 0; i < new_case.length; i++) {
+//             for (int j = 0; j < new_case.length; j++) {
+//                 if (j == new_case.length - 1) {
+//                     new_case[i][j] = -1;
+//                 } else {
                     
-                }
-            }
-        }
+//                 }
+//             }
+//         }
 
-        Solution_day8 soln = new Solution_day8();
-        System.out.println(soln.countNegatives(new_case));
-    }
-}
+//         Solution_day8 soln = new Solution_day8();
+//         System.out.println(soln.countNegatives(new_case));
+//     }
+// }
 
 /**
  * Solution_d8
